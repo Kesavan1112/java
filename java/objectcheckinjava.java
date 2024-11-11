@@ -11,10 +11,10 @@ public class objectcheckinjava
     void j(){
         System.out.println(l*b*h);
     }
-    boolean checktheobject(objectcheckinjava p2)//this method like other common method cause of if i recive object's value that's why i created object which means p2.
+    boolean checktheobject(objectcheckinjava p2)//this method like other common method cause of if i receive object's value that's why i created object which means p2.
     //boolean must be  return true or false
     {
-        if(l==p2.l&&h==p2.h&&b==p2.b)//l,h,b indicates the p1 object.p.l,p.h,p.b denotes the p2 object
+        if(p1.l==p2.l&&p1.h==p2.h&&p1.b==p2.b)//l,h,b indicates the p1 object.p.l,p.h,p.b denotes the p2 object
         return true;//1
         return false;//0//we don't need else after true condition doesn't come return false.
 

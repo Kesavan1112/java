@@ -1,0 +1,15 @@
+for example:
+1.step 1:javac filename.java//if it compile sucessfully,it create class file like this=>filename.class
+filename.class=>important three advantage
+1.code secure(no one hack)
+2.platform independent(we can use linx,windows,macos)
+3.it does separate into two .one is output,another one is source code.
+2.step 2:java filename or java filename.java//which indicates the run and which runs the class file that's means  filename.class 
+
+basic things of java
+1.javac filename.java =>dot which means extension(filename).
+2.Object is superclass of all java class.
+
+
+instance variable in java:
+1.instance variable which means when we create variable without static keyword that's instance variable.

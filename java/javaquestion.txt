@@ -1,0 +1,8 @@
+
+    
+1.what is dynamic binding in java?
+2.why dummy non parameter constructor use in during inheritence ?you check oop\inheritwithconstrutor.java
+3.what is cast in java upcasting and downcasting.
+4.what is anonymus class in java?
+5.what is period class in java?
+6.when do i utilize try with parenthesis like try(){} catch(){}?

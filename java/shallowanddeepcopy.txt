@@ -1,0 +1,111 @@
+### Shallow Copy
+
+A **shallow copy** creates a new object, but it does **not recursively copy** all objects it references. Instead, it copies references to those objects. For primitive types, values are directly copied, but for non-primitive types (like objects), only the references (addresses) are copied, not the actual objects themselves.
+
+In other words:
+- The copied object points to the **same memory locations** for any non-primitive fields as the original object.
+
+#### Example in Java (Shallow Copy):
+```java
+class Person {
+    String name;
+
+    Person(String name) {
+        this.name = name;
+    }
+}
+
+class Employee implements Cloneable {
+    int id;
+    Person person;
+
+    Employee(int id, Person person) {
+        this.id = id;
+        this.person = person;
+    }
+
+    public Object clone() throws CloneNotSupportedException {
+        return super.clone();  // Creates a shallow copy
+    }
+}
+
+public class Main {
+    public static void main(String[] args) throws CloneNotSupportedException {
+        Person person1 = new Person("John");
+        Employee emp1 = new Employee(101, person1);
+
+        // Shallow copy
+        Employee emp2 = (Employee) emp1.clone();
+
+        emp2.person.name = "David";  // Changing the referenced object's value
+
+        System.out.println(emp1.person.name);  // Output: David
+        System.out.println(emp2.person.name);  // Output: David
+    }
+}
+```
+In this case, `emp2` is a shallow copy of `emp1`, but since the `person` object is referenced and not deeply copied, changing `emp2.person.name` also affects `emp1.person.name`.
+
+### Deep Copy
+
+A **deep copy** creates a new object and **recursively copies** all objects it references. This means that the entire structure of the original object is duplicated, with no shared references between the original and the copied object.
+
+In a deep copy, every field of the original object, including objects referenced by it, gets a new copy.
+
+#### Example in Java (Deep Copy):
+```java
+class Person implements Cloneable {
+    String name;
+
+    Person(String name) {
+        this.name = name;
+    }
+
+    // Deep copy for Person object
+    public Object clone() throws CloneNotSupportedException {
+        return new Person(this.name);
+    }
+}
+
+class Employee implements Cloneable {
+    int id;
+    Person person;
+
+    Employee(int id, Person person) {
+        this.id = id;
+        this.person = person;
+    }
+
+    // Deep copy for Employee object
+    public Object clone() throws CloneNotSupportedException {
+        Employee cloned = (Employee) super.clone();
+        cloned.person = (Person) person.clone();  // Deep copy of the referenced object
+        return cloned;
+    }
+}
+
+public class Main {
+    public static void main(String[] args) throws CloneNotSupportedException {
+        Person person1 = new Person("John");
+        Employee emp1 = new Employee(101, person1);
+
+        // Deep copy
+        Employee emp2 = (Employee) emp1.clone();
+
+        emp2.person.name = "David";  // Changing the copied object's value
+
+        System.out.println(emp1.person.name);  // Output: John
+        System.out.println(emp2.person.name);  // Output: David
+    }
+}
+```
+In this deep copy example, `emp2` is a deep copy of `emp1`, and changing `emp2.person.name` does not affect `emp1.person.name`, as they are separate objects.
+
+### Key Differences:
+1. **Shallow Copy**:
+   - Copies only the reference to the objects (for non-primitives).
+   - Changes to the copied object's referenced objects affect the original object's referenced objects.
+   
+2. **Deep Copy**:
+   - Recursively copies all objects and their references.
+   - Changes to the copied object's referenced objects do **not** affect the original object's referenced objects.

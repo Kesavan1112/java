@@ -1,0 +1,65 @@
+In Java, **upcasting** and **downcasting** are two types of object casting that occur when you work with class inheritance. Here’s a breakdown of each:
+
+### 1. **Upcasting:**
+   - **Definition:** Upcasting refers to casting a subclass (child) object to a superclass (parent) reference.
+   - **Purpose:** It allows you to treat a subclass object as if it were an instance of its superclass. This is often done to use polymorphism, where a superclass reference can point to any subclass object.
+   - **Example:**
+
+     ```java
+     class Animal {
+         void makeSound() {
+             System.out.println("Animal sound");
+         }
+     }
+
+     class Dog extends Animal {
+         void makeSound() {
+             System.out.println("Bark");
+         }
+     }
+
+     public class Main {
+         public static void main(String[] args) {
+             Animal myDog = new Dog(); // Upcasting
+             myDog.makeSound(); // Calls the Dog's makeSound method
+         }
+     }
+     ```
+   - **Explanation:** In the example, `Dog` is a subclass of `Animal`. When you upcast `Dog` to `Animal`, the `myDog` reference can still access the `makeSound` method, and the method that is executed depends on the actual object type, thanks to polymorphism.
+
+### 2. **Downcasting:**
+   - **Definition:** Downcasting is the opposite of upcasting. It refers to casting a superclass reference back to a subclass reference.
+   - **Purpose:** Downcasting is used when you want to access specific properties or methods of the subclass that are not available in the superclass.
+   - **Example:**
+
+     ```java
+     class Animal {
+         void makeSound() {
+             System.out.println("Animal sound");
+         }
+     }
+
+     class Dog extends Animal {
+         void makeSound() {
+             System.out.println("Bark");
+         }
+
+         void fetch() {
+             System.out.println("Fetching...");
+         }
+     }
+
+     public class Main {
+         public static void main(String[] args) {
+             Animal myAnimal = new Dog(); // Upcasting
+             Dog myDog = (Dog) myAnimal; // Downcasting
+             myDog.fetch(); // Now we can call fetch, specific to Dog
+         }
+     }
+     ```
+
+   - **Explanation:** Here, `myAnimal` is an `Animal` reference to a `Dog` object. To access methods specific to `Dog`, you need to downcast `myAnimal` back to a `Dog`. This allows you to call `fetch()`, which isn’t available in the `Animal` class.
+
+### **Key Points:**
+- **Upcasting** is safe and does not require explicit casting because every subclass instance is also an instance of the superclass.
+- **Downcasting** requires explicit casting and can throw a `ClassCastException` if the object being cast is not actually an instance of the target subclass. Therefore, it’s often good practice to use the `instanceof` operator to check the type before downcasting.

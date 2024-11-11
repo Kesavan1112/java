@@ -1,0 +1,42 @@
+1.what is streams in java?
+stream is sequence of data.
+they are two type of stream 
+1.byte stream eg:if you stores image ,it uses byte stream.
+2.character stream(unicode)
+
+
+*java performs input and output through these stream.basically java provides abstraction .abstraction which means hide complexity.
+*stream links on physical device for example keyboard.
+*java implements these stream within class hierachy in java.io package
+
+
+System.in =>in is reference variable of InputStream .n Java, a reference variable is a variable that points to an object's memory location, and an object is a reference variable
+
+bytestream=>it uses image,pdf,audio etc.
+bytestream are two classes that's 1.inputstream which refers byte value2.outputstream.
+inputstream and outputstream are abstract classes.
+
+if you read byte data ,that's inputstream
+if you write byte data ,that's outputstream
+
+whether anything ending with stream,they are called  bytestream
+
+
+two paramount method:
+1.read=>inputstream
+2.write=>outputstream
+
+characterstream=>it uses character.
+it is two classes in characterstream 1.Reader 2.Writer.
+Reader and Writer are abstract classes.
+
+
+what is predefined stream?
+
+1.System.in=>inputstream
+2.System.out=>ouputstream
+3.System.err=>errorstream
+
+printstream:
+*inputstream and outputstrem are printstream.
+

@@ -1,0 +1,26 @@
+
+desktop application
+
+step 1:core java completion(command line application)=>to practice such as codesignal,hackerrank,leetcode
+
+step 2:swing(user interface application eg:textbox,button which means interactive to client to server) =>to learn swing framework it helps to develop user interface (yt:procode)
+
+step 3:JDBC(java database connectivity)
+
+android developer
+step 1:core java
+step 2:kotlin
+step 3:xml
+step 4:android ide
+
+web developer(most job offering and i want this web developer)
+1.core java
+2.servlet jsp(java server page)
+3.xml(Extensible markup language)
+4.spring framework
+5.spring mvc
+6.hibernate(orm or spring orm)orm=>object relational mapping
+
+big data
+1.hadloop
+2.apache spark
